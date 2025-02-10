@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مستشفى الأهلي</title>
+    <!-- تضمين Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- تضمين Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <!-- تضمين AOS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+    <!-- تضمين Swiper CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" rel="stylesheet">
+    <!-- تخصيص CSS -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- شريط التنقل -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container">
+            <a class="navbar-brand" href="#">مستشفى الأهلي</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#home">الرئيسية</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">عن المستشفى</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#services">الخدمات</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#doctors">الأطباء</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#appointments">حجز موعد</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#news">الأخبار</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#gallery">معرض الصور</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#testimonials">الشهادات</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#faq">الأسئلة الشائعة</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#statistics">الإحصائيات</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#events">الفعاليات</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#partners">الشركاء</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#blog">المدونة</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#careers">التوظيف</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">اتصل بنا</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- القسم الرئيسي -->
+    <section id="home" class="bg-light py-5 text-center">
+        <div class="container">
+            <h1 class="display-4" data-aos="fade-down">مرحبًا بكم في مستشفى الأهلي</h1>
+            <p class="lead" data-aos="fade-up">نقدم لكم أفضل الخدمات الطبية بأعلى معايير الجودة.</p>
+            <a href="#appointments" class="btn btn-primary btn-lg" data-aos="zoom-in">حجز موعد</a>
+        </div>
+    </section>
+
+    <!-- قسم عن المستشفى -->
+    <section id="about" class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-4" data-aos="fade-down">عن المستشفى</h2>
+            <div class="row">
+                <div class="col-md-6" data-aos="fade-right">
+                    <img src="hospital.jpg" class="img-fluid rounded" alt="مستشفى الأهلي">
+                </div>
+                <div class="col-md-6" data-aos="fade-left">
+                    <p>مستشفى الأهلي هو أحد أبرز المستشفيات في المنطقة، حيث نقدم خدمات طبية متكاملة بأعلى معايير الجودة. نحن نحرص على توفير الرعاية الصحية الشاملة لجميع المرضى باستخدام أحدث التقنيات وأفضل الكوادر الطبية.</p>
+                    <p>تأسس مستشفى الأهلي عام 2000، ومنذ ذلك الحين ونحن نعمل على تحسين خدماتنا لتلبية احتياجات المرضى بشكل أفضل.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم الخدمات -->
+    <section id="services" class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-4" data-aos="fade-down">الخدمات الطبية</h2>
+            <div class="row">
+                <div class="col-md-4" data-aos="fade-right">
+                    <div class="card mb-4">
+                        <div class="card-body text-center">
+                            <i class="fas fa-ambulance fa-3x mb-3"></i>
+                            <h3 class="card-title">الطوارئ</h3>
+                            <p class="card-text">خدمات طوارئ على مدار الساعة.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-up">
+                    <div class="card mb-4">
+                        <div class="card-body text-center">
+                            <i class="fas fa-syringe fa-3x mb-3"></i>
+                            <h3 class="card-title">جراحة عامة</h3>
+                            <p class="card-text">أفضل الجراحين وأحدث التقنيات.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-left">
+                    <div class="card mb-4">
+                        <div class="card-body text-center">
+                            <i class="fas fa-baby fa-3x mb-3"></i>
+                            <h3 class="card-title">طب الأطفال</h3>
+                            <p class="card-text">رعاية متخصصة للأطفال.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم الأطباء -->
+    <section id="doctors" class="bg-light py-5">
+        <div class="container">
+            <h2 class="text-center mb-4" data-aos="fade-down">فريق الأطباء</h2>
+            <div class="swiper mySwiper" data-aos="fade-up">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <div class="card">
+                            <img src="doctor1.jpg" class="card-img-top" alt="الدكتور أحمد محمد">
+                            <div class="card-body text-center">
+                                <h3 class="card-title">الدكتور أحمد محمد</h3>
+                                <p class="card-text">جراح عام</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="card">
+                            <img src="doctor2.jpg" class="card-img-top" alt="الدكتورة سارة علي">
+                            <div class="card-body text-center">
+                                <h3 class="card-title">الدكتورة سارة علي</h3>
+                                <p class="card-text">طبيبة أطفال</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="card">
+                            <img src="doctor3.jpg" class="card-img-top" alt="الدكتور خالد حسن">
+                            <div class="card-body text-center">
+                                <h3 class="card-title">الدكتور خالد حسن</h3>
+                                <p class="card-text">أخصائي قلب</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-pagination"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم حجز المواعيد -->
+    <section id="appointments" class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-4" data-aos="fade-down">حجز موعد</h2>
+            <form class="row g-3">
+                <div class="col-md-6" data-aos="fade-right">
+                    <label for="name" class="form-label">الاسم:</label>
+                    <input type="text" class="form-control" id="name" required>
+                </div>
+                <div class="col-md-6" data-aos="fade-left">
+                    <label for="phone" class="form-label">رقم الهاتف:</label>
+                    <input type="tel" class="form-control" id="phone" required>
+                </div>
+                <div class="col-md-6" data-aos="fade-right">
+                    <label for="date" class="form-label">التاريخ:</label>
+                    <input type="date" class="form-control" id="date" required>
+                </div>
+                <div class="col-md-6" data-aos="fade-left">
+                    <label for="doctor" class="form-label">اختر الطبيب:</label>
+                    <select class="form-select" id="doctor" required>
+                        <option value="1">الدكتور أحمد محمد</option>
+                        <option value="2">الدكتورة سارة علي</option>
+                        <option value="3">الدكتور خالد حسن</option>
+                    </select>
+                </div>
+                <div class="col-12" data-aos="zoom-in">
+                    <button type="submit" class="btn btn-primary">حجز الموعد</button>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <!-- قسم الأخبار -->
+    <section id="news" class="bg-light py-5">
+        <div class="container">
+            <h2 class="text-center mb-4" data-aos="fade-down">الأخبار</h2>
+            <div class="row">
+                <div class="col-md-4" data-aos="fade-right">
+                    <div class="card mb-4">
+                        <img src="news1.jpg" class="card-img-top" alt="خبر 1">
+                        <div class="card-body">
+                            <h3 class="card-title">افتتاح جناح جديد</h3>
+                            <p class="card-text">تم افتتاح جناح جديد للمرضى في مستشفى الأهلي.</p>
+                            <a href="#" class="btn btn-primary">اقرأ المزيد</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-up">
+                    <div class="card mb-4">
+                        <img src="news2.jpg" class="card-img-top" alt="خبر 2">
+                        <div class="card-body">
+                            <h3 class="card-title">ندوة طبية</h3>
+                            <p class="card-text">ندوة طبية حول أحدث التطورات في جراحة القلب.</p>
+                            <a href="#" class="btn btn-primary">اقرأ المزيد</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-left">
+                    <div class="card mb-4">
+                        <img src="news3.jpg" class="card-img-top" alt="خبر 3">
+                        <div class="card-body">
+                            <h3 class="card-title">تكريم الأطباء</h3>
+                            <p class="card-text">تم تكريم فريق الأطباء في مستشفى الأهلي.</p>
+                            <a href="#" class="btn btn-primary">اقرأ المزيد</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم معرض الصور -->
+    <section id="gallery" class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-4" data-aos="fade-down">معرض الصور</h2>
+            <div class="row">
+                <div class="col-md-4" data-aos="fade-right">
+                    <img src="gallery1.jpg" class="img-fluid rounded mb-4" alt="صورة 1">
+                </div>
+                <div class="col-md-4" data-aos="fade-up">
+                    <img src="gallery2.jpg" class="img-fluid rounded mb-4" alt="صورة 2">
+                </div>
+                <div class="col-md-4" data-aos="fade-left">
+                    <img src="gallery3.jpg" class="img-fluid rounded mb-4" alt="صورة 3">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم الشهادات والتقييمات -->
+    <section id="testimonials" class="bg-light py-5">
+        <div class="container">
+            <h2 class="text-center mb-4" data-aos="fade-down">الشهادات والتقييمات</h2>
+            <div class="row">
+                <div class="col-md-4" data-aos="fade-right">
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <p class="card-text">"تجربة رائعة، فريق طبي ممتاز وخدمات عالية الجودة."</p>
+                            <p class="text-muted">- محمد علي</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-up">
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <p class="card-text">"أشكر المستشفى على الرعاية الممتازة التي تلقيتها."</p>
+                            <p class="text-muted">- فاطمة أحمد</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-left">
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <p class="card-text">"مستشفى الأهلي هو الأفضل في المنطقة بلا منازع."</p>
+                            <p class="text-muted">- خالد حسن</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم الأسئلة الشائعة -->
+    <section id="faq" class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-4" data-aos="fade-down">الأسئلة الشائعة</h2>
+            <div class="accordion" id="faqAccordion">
+                <div class="accordion-item" data-aos="fade-right">
+                    <h3 class="accordion-header" id="headingOne">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne">
+                            كيف يمكنني حجز موعد؟
+                        </button>
+                    </h3>
+                    <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            يمكنك حجز موعد من خلال النموذج الموجود في قسم "حجز موعد" أو عن طريق الاتصال بنا.
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item" data-aos="fade-left">
+                    <h3 class="accordion-header" id="headingTwo">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo">
+                            ما هي ساعات العمل؟
+                        </button>
+                    </h3>
+                    <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            ساعات العمل من الساعة 8 صباحًا حتى 10 مساءً طوال أيام الأسبوع.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم الإحصائيات -->
+    <section id="statistics" class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-4" data-aos="fade-down">الإحصائيات</h2>
+            <div class="row">
+                <div class="col-md-4" data-aos="fade-right">
+                    <div class="card mb-4">
+                        <div class="card-body text-center">
+                            <h3 class="card-title">عدد المرضى</h3>
+                            <p class="card-text">10,000+</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-up">
+                    <div class="card mb-4">
+                        <div class="card-body text-center">
+                            <h3 class="card-title">العمليات الناجحة</h3>
+                            <p class="card-text">5,000+</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-left">
+                    <div class="card mb-4">
+                        <div class="card-body text-center">
+                            <h3 class="card-title">الأطباء المتخصصين</h3>
+                            <p class="card-text">200+</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم الفعاليات -->
+    <section id="events" class="bg-light py-5">
+        <div class="container">
+            <h2 class="text-center mb-4" data-aos="fade-down">الفعاليات</h2>
+            <div class="row">
+                <div class="col-md-4" data-aos="fade-right">
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <h3 class="card-title">ندوة طبية</h3>
+                            <p class="card-text">ندوة حول أحدث التطورات في جراحة القلب.</p>
+                            <p class="text-muted">التاريخ: 15 أكتوبر 2023</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-up">
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <h3 class="card-title">يوم الصحة</h3>
+                            <p class="card-text">فعالية توعوية حول الصحة العامة.</p>
+                            <p class="text-muted">التاريخ: 20 نوفمبر 2023</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-left">
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <h3 class="card-title">ورشة عمل</h3>
+                            <p class="card-text">ورشة عمل حول الإسعافات الأولية.</p>
+                            <p class="text-muted">التاريخ: 5 ديسمبر 2023</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم الشركاء -->
+    <section id="partners" class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-4" data-aos="fade-down">الشركاء</h2>
+            <div class="row">
+                <div class="col-md-3" data-aos="fade-right">
+                    <img src="partner1.png" class="img-fluid" alt="شريك 1">
+                </div>
+                <div class="col-md-3" data-aos="fade-up">
+                    <img src="partner2.png" class="img-fluid" alt="شريك 2">
+                </div>
+                <div class="col-md-3" data-aos="fade-down">
+                    <img src="partner3.png" class="img-fluid" alt="شريك 3">
+                </div>
+                <div class="col-md-3" data-aos="fade-left">
+                    <img src="partner4.png" class="img-fluid" alt="شريك 4">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم المدونة -->
+    <section id="blog" class="bg-light py-5">
+        <div class="container">
+            <h2 class="text-center mb-4" data-aos="fade-down">المدونة</h2>
+            <div class="row">
+                <div class="col-md-4" data-aos="fade-right">
+                    <div class="card mb-4">
+                        <img src="blog1.jpg" class="card-img-top" alt="مقال 1">
+                        <div class="card-body">
+                            <h3 class="card-title">نصائح للحفاظ على صحة القلب</h3>
+                            <p class="card-text">تعرف على أهم النصائح للحفاظ على صحة القلب.</p>
+                            <a href="#" class="btn btn-primary">اقرأ المزيد</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-up">
+                    <div class="card mb-4">
+                        <img src="blog2.jpg" class="card-img-top" alt="مقال 2">
+                        <div class="card-body">
+                            <h3 class="card-title">كيفية الوقاية من الأمراض</h3>
+                            <p class="card-text">تعرف على كيفية الوقاية من الأمراض الشائعة.</p>
+                            <a href="#" class="btn btn-primary">اقرأ المزيد</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-left">
+                    <div class="card mb-4">
+                        <img src="blog3.jpg" class="card-img-top" alt="مقال 3">
+                        <div class="card-body">
+                            <h3 class="card-title">أهمية الفحوصات الدورية</h3>
+                            <p class="card-text">تعرف على أهمية الفحوصات الدورية للكشف المبكر عن الأمراض.</p>
+                            <a href="#" class="btn btn-primary">اقرأ المزيد</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم التوظيف -->
+    <section id="careers" class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-4" data-aos="fade-down">التوظيف</h2>
+            <div class="row">
+                <div class="col-md-6" data-aos="fade-right">
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <h3 class="card-title">طبيب أخصائي</h3>
+                            <p class="card-text">نبحث عن طبيب أخصائي في جراحة القلب.</p>
+                            <a href="#" class="btn btn-primary">تقديم طلب</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6" data-aos="fade-left">
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <h3 class="card-title">ممرض/ممرضة</h3>
+                            <p class="card-text">نبحث عن ممرض/ممرضة للعمل في قسم الطوارئ.</p>
+                            <a href="#" class="btn btn-primary">تقديم طلب</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم الاتصال -->
+    <section id="contact" class="bg-light py-5">
+        <div class="container">
+            <h2 class="text-center mb-4" data-aos="fade-down">اتصل بنا</h2>
+            <div class="text-center">
+                <p data-aos="fade-right"><i class="fas fa-map-marker-alt"></i> العنوان: شارع الملك عبدالعزيز، الرياض، السعودية</p>
+                <p data-aos="fade-left"><i class="fas fa-phone"></i> الهاتف: +966 11 123 4567</p>
+                <p data-aos="fade-right"><i class="fas fa-envelope"></i> البريد الإلكتروني: info@al-ahli-hospital.com</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- تذييل الصفحة -->
+    <footer class="bg-primary text-white text-center py-3">
+        <div class="container">
+            <p data-aos="fade-up">&copy; 2023 مستشفى الأهلي. جميع الحقوق محفوظة.</p>
+        </div>
+    </footer>
+
+    <!-- تضمين Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- تضمين AOS JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <!-- تضمين Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+    <!-- تهيئة AOS -->
+    <script>
+        AOS.init();
+    </script>
+    <!-- تهيئة Swiper -->
+    <script>
+        var swiper = new Swiper(".mySwiper", {
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+            },
+        });
+    </script>
+</body>
+</html>
