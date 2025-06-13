@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>إدارة صيدلية</title>
+<style>
+  body {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    background: #f7f9fc;
+    margin: 0; padding: 0;
+    color: #222;
+  }
+  header {
+    background-color: #00695c;
+    color: #fff;
+    text-align: center;
+    padding: 15px 10px;
+    font-size: 24px;
+    font-weight: bold;
+  }
+  main {
+    max-width: 900px;
+    margin: 20px auto;
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px #ccc;
+  }
+  label {
+    display: block;
+    margin-top: 12px;
+    font-weight: bold;
+  }
+  input, select {
+    width: 100%;
+    padding: 8px 10px;
+    margin-top: 6px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+  }
+  button {
+    margin-top: 18px;
+    padding: 10px 18px;
+    background-color: #00695c;
+    border: none;
+    color: white;
+    font-size: 16px;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+  button:hover {
+    background-color: #004d40;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 22px;
+  }
+  th, td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: center;
+  }
+  th {
+    background-color: #004d40;
+    color: white;
+  }
+  .btn-edit, .btn-delete {
+    cursor: pointer;
+    padding: 6px 12px;
+    border-radius: 5px;
+    border: none;
+    color: white;
+  }
+  .btn-edit {
+    background-color: #1976d2;
+  }
+  .btn-delete {
+    background-color: #d32f2f;
+  }
+  #login-form, #pharmacy-app {
+    max-width: 700px;
+    margin: 30px auto;
+  }
+  #currency-selector {
+    margin-top: 12px;
+  }
+  .currency-symbol {
+    font-weight: bold;
+    font-size: 18px;
+  }
+  .footer {
+    text-align: center;
+    margin: 25px 0 15px 0;
+    font-size: 14px;
+    color: #666;
+  }
+</style>
+</head>
+<body>
+
+<header>نظام إدارة الصيدلية</header>
+
+<div id="login-form">
+  <h2>تسجيل الدخول</h2>
+  <label for="password">كلمة المرور:</label>
+  <input type="password" id="password" placeholder="ادخل كلمة المرور" />
+  <button id="login-btn">دخول</button>
+  <p id="login-error" style="color:red; display:none;">كلمة المرور خاطئة!</p>
+</div>
+
+<div id="pharmacy-app" style="display:none;">
+  <h2>لوحة تحكم الصيدلية</h2>
+
+  <label for="currency">اختر العملة:</label>
+  <select id="currency-selector">
+    <option value="IQD">الدينار العراقي (IQD)</option>
+    <option value="USD">الدولار الأمريكي ($)</option>
+  </select>
+
+  <form id="add-med-form">
+    <label for="med-name">اسم الدواء:</label>
+    <input type="text" id="med-name" required placeholder="مثال: باراسيتامول" />
+
+    <label for="med-source">مصدر الدواء:</label>
+    <input type="text" id="med-source" required placeholder="مثال: شركة الرافدين" />
+
+    <label for="med-expiry">تاريخ انتهاء الصلاحية:</label>
+    <input type="date" id="med-expiry" required />
+
+    <label for="med-quantity">الكمية المتوفرة:</label>
+    <input type="number" id="med-quantity" min="0" required placeholder="عدد القطع المتوفرة" />
+
+    <label for="med-price">السعر:</label>
+    <input type="number" id="med-price" min="0" step="0.01" required placeholder="مثلاً 1000" />
+
+    <button type="submit">إضافة / تحديث الدواء</button>
+  </form>
+
+  <table id="med-table">
+    <thead>
+      <tr>
+        <th>اسم الدواء</th>
+        <th>المصدر</th>
+        <th>تاريخ الانتهاء</th>
+        <th>الكمية</th>
+        <th>السعر</th>
+        <th>تحكم</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- سيتم إدخال الأدوية هنا -->
+    </tbody>
+  </table>
+
+  <button id="logout-btn" style="margin-top:20px; background:#d32f2f;">تسجيل الخروج</button>
+</div>
+
+<div class="footer">
+  &copy; 2025 إدارة الصيدلية - تم التطوير بواسطة ChatGPT
+</div>
+
+<script>
+  // كلمة المرور الثابتة
+  const PASSWORD = "12345";
+
+  // عناصر الصفحة
+  const loginForm = document.getElementById("login-form");
+  const pharmacyApp = document.getElementById("pharmacy-app");
+  const loginBtn = document.getElementById("login-btn");
+  const passwordInput = document.getElementById("password");
+  const loginError = document.getElementById("login-error");
+  const addMedForm = document.getElementById("add-med-form");
+  const medTableBody = document.querySelector("#med-table tbody");
+  const currencySelector = document.getElementById("currency-selector");
+  const logoutBtn = document.getElementById("logout-btn");
+
+  // بيانات الادوية
+  let medicines = [];
+  let currency = "IQD";
+
+  // تحميل البيانات من localStorage
+  function loadData() {
+    const medData = localStorage.getItem("pharmacy_medicines");
+    if (medData) medicines = JSON.parse(medData);
+    const savedCurrency = localStorage.getItem("pharmacy_currency");
+    if (savedCurrency) currency = savedCurrency;
+    currencySelector.value = currency;
+  }
+
+  // حفظ البيانات في localStorage
+  function saveData() {
+    localStorage.setItem("pharmacy_medicines", JSON.stringify(medicines));
+    localStorage.setItem("pharmacy_currency", currency);
+  }
+
+  // عرض الأدوية في الجدول
+  function renderMedicines() {
+    medTableBody.innerHTML = "";
+    if (medicines.length === 0) {
+      medTableBody.innerHTML = `<tr><td colspan="6">لا توجد أدوية مضافة حالياً</td></tr>`;
+      return;
+    }
+    medicines.forEach((med, index) => {
+      const tr = document.createElement("tr");
+      tr.innerHTML = `
+        <td>${med.name}</td>
+        <td>${med.source}</td>
+        <td>${med.expiry}</td>
+        <td>${med.quantity}</td>
+        <td>${formatPrice(med.price)}</td>
+        <td>
+          <button class="btn-edit" data-index="${index}">تعديل</button>
+          <button class="btn-delete" data-index="${index}">حذف</button>
+        </td>
+      `;
+      medTableBody.appendChild(tr);
+    });
+  }
+
+  // تنسيق السعر مع العملة
+  function formatPrice(price) {
+    if (currency === "IQD") {
+      return price + " د.ع";
+    } else if (currency === "USD") {
+      return "$ " + price;
+    } else {
+      return price;
+    }
+  }
+
+  // تسجيل الدخول
+  loginBtn.addEventListener("click", () => {
+    const pass = passwordInput.value.trim();
+    if (pass === PASSWORD) {
+      loginError.style.display = "none";
+      loginForm.style.display = "none";
+      pharmacyApp.style.display = "block";
+      loadData();
+      renderMedicines();
+    } else {
+      loginError.style.display = "block";
+    }
+  });
+
+  // تسجيل الخروج
+  logoutBtn.addEventListener("click", () => {
+    pharmacyApp.style.display = "none";
+    loginForm.style.display = "block";
+    passwordInput.value = "";
+  });
+
+  // تغيير العملة
+  currencySelector.addEventListener("change", () => {
+    currency = currencySelector.value;
+    saveData();
+    renderMedicines();
+  });
+
+  // إضافة أو تعديل دواء
+  addMedForm.addEventListener("submit", e => {
+    e.preventDefault();
+    const name = document.getElementById("med-name").value.trim();
+    const source = document.getElementById("med-source").value.trim();
+    const expiry = document.getElementById("med-expiry").value;
+    const quantity = parseInt(document.getElementById("med-quantity").value);
+    const price = parseFloat(document.getElementById("med-price").value);
+
+    if (!name || !source || !expiry || isNaN(quantity) || isNaN(price)) {
+      alert("يرجى ملء جميع الحقول بشكل صحيح");
+      return;
+    }
+
+    // تحقق هل الدواء موجود مسبقًا (بحسب الاسم والمصدر)
+    const existingIndex = medicines.findIndex(
+      med => med.name === name && med.source === source
+    );
+
+    if (existingIndex >= 0) {
+      // تحديث الدواء
+      medicines[existingIndex] = { name, source, expiry, quantity, price };
+    } else {
+      // إضافة جديد
+      medicines.push({ name, source, expiry, quantity, price });
+    }
+
+    saveData();
+    renderMedicines();
+    addMedForm.reset();
+  });
+
+  // التعامل مع أزرار التعديل والحذف
+  medTableBody.addEventListener("click", e => {
+    if (e.target.classList.contains("btn-delete")) {
+      const index = e.target.getAttribute("data-index");
+      if (confirm("هل أنت متأكد من حذف هذا الدواء؟")) {
+        medicines.splice(index, 1);
+        saveData();
+        renderMedicines();
+      }
+    } else if (e.target.classList.contains("btn-edit")) {
+      const index = e.target.getAttribute("data-index");
+      const med = medicines[index];
+      document.getElementById("med-name").value = med.name;
+      document.getElementById("med-source").value = med.source;
+      document.getElementById("med-expiry").value = med.expiry;
+      document.getElementById("med-quantity").value = med.quantity;
+      document.getElementById("med-price").value = med.price;
+    }
+  });
+
+</script>
+
+</body>
+ </html
